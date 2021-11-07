@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace BasicForStuding
 {
-    public interface IBaseStudingClass<TNext>
-        where TNext : IBaseStudingClass<TNext>, new()
+    public interface IBaseStudingClass
     {
         string Description { get; set; }
 
         string Name { get; set; }
 
-        TNext Next { get; set; }
+        IBaseStudingClass Next { get; set; }
 
         (bool Next, bool Previous, bool Close) Execute();
     }

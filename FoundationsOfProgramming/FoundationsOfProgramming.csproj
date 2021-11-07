@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5BAEE415-6ADE-4A1B-8B94-C63CFAAE46E2}</ProjectGuid>
+    <ProjectGuid>{4136E5A0-A175-45BC-94B2-66C4DEB0411F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BasicForStuding</RootNamespace>
-    <AssemblyName>BasicForStuding</AssemblyName>
+    <RootNamespace>FoundationsOfProgramming</RootNamespace>
+    <AssemblyName>FoundationsOfProgramming</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,10 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseExercise.cs" />
-    <Compile Include="BaseLesson.cs" />
-    <Compile Include="IBaseStudingClass.cs" />
+    <Compile Include="Exercises\Lesson1\Exercise1.cs" />
+    <Compile Include="Exercises\Lesson1\Exercise2.cs" />
+    <Compile Include="Exercises\Lesson1\Exercise3.cs" />
+    <Compile Include="Exercises\Lesson1\Exercise4.cs" />
+    <Compile Include="Lessons\Lesson1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BasicForStuding\BasicForStuding.csproj">
+      <Project>{5baee415-6ade-4a1b-8b94-c63cfaae46e2}</Project>
+      <Name>BasicForStuding</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

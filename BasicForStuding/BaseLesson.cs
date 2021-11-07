@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace BasicForStuding
 {
-    public abstract class BaseLesson<TNext> : IBaseStudingClass<TNext>
-        where TNext : IBaseStudingClass<TNext>, new()
+    public abstract class BaseLesson : IBaseStudingClass
     {
-        public string Description { get; set; }
+        public abstract string Description { get; set; }
 
-        public string Name { get; set; }
+        public abstract string Name { get; set; }
 
-        public TNext Next { get; set; }
+        public IBaseStudingClass Next { get; set; }
 
         public (bool Next, bool Previous, bool Close) Execute() {
             (bool Next, bool Previous, bool Close) nextAction = default;
@@ -28,6 +27,7 @@ namespace BasicForStuding
 
                     if (nextActionOfNextExercise.Previous &&
                         !nextActionOfNextExercise.Close) {
+                        Clean();
                         WriteGeneralInformation();
                         nextAction = GoToNextAction();
                     }
@@ -43,8 +43,11 @@ namespace BasicForStuding
 
         private void WriteGeneralInformation() {
             Clean();
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine($"**********************{Name}**********************");
             Console.WriteLine(Description);
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         private (bool Next, bool Previous, bool Close) GoToNextAction() {
@@ -54,10 +57,11 @@ namespace BasicForStuding
         }
 
         protected ConsoleKeyInfo GetChoice() {
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("\nWhat shell we do next?");
-            Console.WriteLine($"{ConsoleKey.Enter} - Perform/Repeat {Name}");
+            Console.WriteLine($"{ConsoleKey.Enter} - Perform/Repeat \"{Name}\"");
 
-            if (Next != null || !(Next is EndClass)) {
+            if (Next != null) {
                 Console.WriteLine($"{ConsoleKey.PageUp} - Next \"{Next.Name}\"");
             }
 

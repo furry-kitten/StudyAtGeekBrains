@@ -1,6 +1,0 @@
-P:\Обучение GeekBrains\BasicForStading\bin\Debug\BasicForStuding.dll
-P:\Обучение GeekBrains\BasicForStading\bin\Debug\BasicForStuding.pdb
-P:\Обучение GeekBrains\BasicForStading\obj\Debug\BasicForStuding.csproj.AssemblyReference.cache
-P:\Обучение GeekBrains\BasicForStading\obj\Debug\BasicForStuding.csproj.CoreCompileInputs.cache
-P:\Обучение GeekBrains\BasicForStading\obj\Debug\BasicForStuding.dll
-P:\Обучение GeekBrains\BasicForStading\obj\Debug\BasicForStuding.pdb
