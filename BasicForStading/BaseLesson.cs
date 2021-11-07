@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace BasicForStuding
 {
     public abstract class BaseLesson<TNext> : IBaseStudingClass<TNext>
-        where TNext : BaseLesson<TNext>, new()
+        where TNext : IBaseStudingClass<TNext>, new()
     {
         public string Description { get; set; }
 
@@ -57,7 +57,7 @@ namespace BasicForStuding
             Console.WriteLine("\nWhat shell we do next?");
             Console.WriteLine($"{ConsoleKey.Enter} - Perform/Repeat {Name}");
 
-            if (Next != null) {
+            if (Next != null || !(Next is EndClass)) {
                 Console.WriteLine($"{ConsoleKey.PageUp} - Next \"{Next.Name}\"");
             }
 

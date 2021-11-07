@@ -3,7 +3,7 @@
 namespace BasicForStuding
 {
     public abstract class BaseExercise<TNext> : IBaseStudingClass<TNext>
-        where TNext : BaseExercise<TNext>, new()
+        where TNext : IBaseStudingClass<TNext>, new()
     {
         public string Description { get; set; }
 
