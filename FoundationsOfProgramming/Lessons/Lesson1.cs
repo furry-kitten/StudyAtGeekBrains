@@ -11,7 +11,7 @@ namespace FoundationsOfProgramming.Lessons
         public override string Name { get; set; } = "C# language basics";
 
         protected override void ExecuteExercise() {
-            var exercise1 = new Exercise5();
+            var exercise1 = new Exercise1();
             exercise1.Execute();
         }
     }
