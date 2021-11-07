@@ -45,6 +45,7 @@
     <Compile Include="Exercises\Lesson1\Exercise2.cs" />
     <Compile Include="Exercises\Lesson1\Exercise3.cs" />
     <Compile Include="Exercises\Lesson1\Exercise4.cs" />
+    <Compile Include="Exercises\Lesson1\Exercise5.cs" />
     <Compile Include="Lessons\Lesson1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -10,6 +10,10 @@ namespace FoundationsOfProgramming.Exercises.Lesson1
 {
     public class Exercise4: BaseExercise
     {
+        public Exercise4() {
+            Next = new Exercise5();
+        }
+
         public override string Description { get; set; } = "Написать программу обмена значениями двух переменных типа int без использования вспомогательных методов.\r\nа) с использованием третьей переменной;\r\nб) *без использования третьей переменной.";
 
         public override string Name { get; set; } = "Написать программу обмена значениями двух переменных типа int";

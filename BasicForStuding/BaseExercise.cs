@@ -37,7 +37,7 @@ namespace BasicForStuding
             return nextAction;
         }
 
-        private void GetResult() {
+        protected virtual void GetResult() {
             SetResult();
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(Result);
