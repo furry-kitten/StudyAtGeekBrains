@@ -24,12 +24,16 @@ namespace BasicForStuding
                 nextAction = GoToNextAction();
 
                 if (nextAction.Next) {
-                    (bool Next, bool Previous, bool Close) nextActionOfNextExercise = Next.Execute();
+                    (bool Next, bool Previous, bool Close) nextActionOfNextExercise;
+                    if (Next != null) {
+                        nextActionOfNextExercise = Next.Execute();
+                    } else {
+                        nextAction = nextActionOfNextExercise = default;
+                    }
 
                     if (nextActionOfNextExercise.Previous &&
                         !nextActionOfNextExercise.Close) {
-                        WriteGeneralInformation();
-                        nextAction = GoToNextAction();
+                        nextAction = default;
                     }
                 }
             }

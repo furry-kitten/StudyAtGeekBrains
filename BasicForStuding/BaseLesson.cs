@@ -24,13 +24,21 @@ namespace BasicForStuding
                 nextAction = GoToNextAction();
 
                 if (nextAction.Next) {
-                    (bool Next, bool Previous, bool Close) nextActionOfNextExercise = Next.Execute();
+                    (bool Next, bool Previous, bool Close) nextActionOfNextExercise;
+                    if (Next != null) {
+                        nextActionOfNextExercise = Next.Execute();
+                    } else {
+                        nextAction = nextActionOfNextExercise = default;
+                        Clean();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine($"Press any key for repeat");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.ReadKey();
+                    }
 
                     if (nextActionOfNextExercise.Previous &&
                         !nextActionOfNextExercise.Close) {
-                        Clean();
-                        WriteGeneralInformation();
-                        nextAction = GoToNextAction();
+                        nextAction = default;
                     }
                 }
             }
@@ -64,6 +72,7 @@ namespace BasicForStuding
             Console.WriteLine($"{ConsoleKey.PageDown} - Previous");
             Console.WriteLine($"{ConsoleKey.Backspace} - Back");
             Console.WriteLine($"{ConsoleKey.Escape} - Close");
+            Console.ForegroundColor = ConsoleColor.White;
 
             ConsoleKeyInfo key = Console.ReadKey();
             return key;

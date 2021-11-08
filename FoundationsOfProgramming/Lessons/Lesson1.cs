@@ -7,6 +7,8 @@ namespace FoundationsOfProgramming.Lessons
 {
     public class Lesson1 : BaseLesson
     {
+        public Lesson1() => Next = new Lesson2();
+
         public override string Description { get; set; } = "In this lesson we have 5 exercises";
 
         public override string Name { get; set; } = "C# language basics";
