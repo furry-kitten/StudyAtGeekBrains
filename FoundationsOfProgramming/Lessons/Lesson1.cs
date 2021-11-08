@@ -1,4 +1,5 @@
-﻿using BasicForStuding;
+﻿using System.Collections.Generic;
+using BasicForStuding;
 using FoundationsOfProgramming.Exercises;
 using FoundationsOfProgramming.Exercises.Lesson1;
 
@@ -10,9 +11,17 @@ namespace FoundationsOfProgramming.Lessons
 
         public override string Name { get; set; } = "C# language basics";
 
-        protected override void ExecuteExercise() {
-            var exercise1 = new Exercise1();
-            exercise1.Execute();
-        }
+        public override List<BaseExercise> Exercises { get; } = new List<BaseExercise> {
+            new Exercise1(),
+            new Exercise2(),
+            new Exercise3(),
+            new Exercise4(),
+            new Exercise5()
+        };
+
+        //protected override void ExecuteExercise() {
+        //    var exercise1 = new Exercise1();
+        //    exercise1.Execute();
+        //}
     }
 }
