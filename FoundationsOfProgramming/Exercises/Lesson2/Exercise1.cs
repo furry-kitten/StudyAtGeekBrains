@@ -19,13 +19,11 @@ namespace FoundationsOfProgramming.Exercises.Lesson2
                                 $"\n{nameof(growth)}\t\t|\t{2}" +
                                 $"\n{nameof(weight)}\t\t|\t{3}";
 
-        public Exercise1() {
-            Next = new Exercise2();
-        }
+        public Exercise1(BaseExercise next) : base(next) { }
 
-        public override string Description { get; set; } = "Последовательно задаются вопросы (имя, фамилия, возраст, рост, вес). В результате вся информация выводится в одну строчку:\r\nа) используя склеивание;\r\nб) используя форматированный вывод;\r\nв) используя вывод со знаком $.";
+        public override string Description { get; set; } = "Написать метод, возвращающий минимальное из трёх чисел.";
 
-        public override string Name { get; set; } = "Написать программу «Анкета»";
+        public override string Name { get; set; } = "Найти минимум";
 
         protected override void ExecuteExercise() {
             SetFIO();

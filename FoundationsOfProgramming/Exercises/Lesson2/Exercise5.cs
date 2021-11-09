@@ -1,39 +1,19 @@
-﻿using System;
-using BasicForStuding;
+﻿using BasicForStuding;
+using L1 = FoundationsOfProgramming.Exercises.Lesson1;
 
 namespace FoundationsOfProgramming.Exercises.Lesson2
 {
-    public class Exercise5 : BaseExercise
+    public class Exercise5 : L1.Exercise2
     {
-        public Exercise5() {
-            Next = new Exercise6();
-        }
-        public override string Description { get; set; } = "а) Написать программу, которая выводит на экран ваше имя, фамилию и город проживания.\r\nб) Сделать задание, только вывод организовать в центре экрана.\r\nв) *Сделать задание б с использованием собственных методов (например, Print(string ms, int x,int y).";
+        public Exercise5(BaseExercise next) : base(next) { }
 
-        public override string Name { get; set; } = "Вывод личных данных";
+        public override string Description { get; set; } = "а) Написать программу, которая запрашивает массу и рост человека, вычисляет его индекс массы и сообщает, нужно ли человеку похудеть, набрать вес или всё в норме.\r\n" +
+                                                           "б) *Рассчитать, на сколько кг похудеть или сколько кг набрать для нормализации веса.";
 
-        public string PersonalData { get; set; } = "Токарев Владимир (Санкт-Петербург)";
-
-        public int CursorXPosition { get; set; }
-
-        public int CursorYPosition { get; set; }
-
-        protected override void GetResult() {
-            Console.CursorLeft = CursorXPosition;
-            Console.CursorTop = CursorYPosition;
-            base.GetResult();
-        }
-
-        protected override void ExecuteExercise() {
-            int halfLengthPersonalData = PersonalData.Length / 2;
-            int halfWidthOfCurrentWindow = Console.WindowWidth / 2;
-            int halfHeightOfCurrentWindow = Console.WindowHeight / 2;
-            CursorXPosition = halfWidthOfCurrentWindow - halfLengthPersonalData;
-            CursorYPosition = halfHeightOfCurrentWindow;
-        }
+        public override string Name { get; set; } = "Рассчитать индекс массы тела";
 
         protected override void SetResult() {
-            Result = PersonalData;
+            Result = $"Your body mass index is {Bmi}";
         }
     }
 }

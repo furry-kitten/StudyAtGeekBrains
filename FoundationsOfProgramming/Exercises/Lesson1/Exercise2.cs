@@ -5,15 +5,13 @@ namespace FoundationsOfProgramming.Exercises.Lesson1
 {
     public class Exercise2 : BaseExercise
     {
-        private double weight;
+        public double Weight { get; set; }
 
-        private double height;
+        public double Height { get; set; }
 
-        private double bmi; // body mass index
+        public double Bmi { get; set; }
 
-        public Exercise2() {
-            Next = new Exercise3();
-        }
+        public Exercise2(BaseExercise next) : base(next) { }
 
         public override string Description { get; set; } = "Ввести вес и рост человека. Рассчитать и вывести индекс массы тела (ИМТ) по формуле I=m/(h*h); где m — масса тела в килограммах, h — рост в метрах.";
 
@@ -25,21 +23,21 @@ namespace FoundationsOfProgramming.Exercises.Lesson1
         }
 
         protected override void SetResult() {
-            Result = $"Your body mass index is {bmi}";
+            Result = $"Your body mass index is {Bmi}";
         }
 
         private void SetBmi() {
-            bmi = weight / Math.Pow(height, 2);
+            Bmi = Weight / Math.Pow(Height, 2);
         }
 
         private void SetPersonParameters() {
-            Console.Write($"Enter your {nameof(weight)} (kg) ");
+            Console.Write($"Enter your {nameof(Weight)} (kg) ");
             string stringWeight = Console.ReadLine();
-            weight = Convert.ToDouble(stringWeight);
+            Weight = Convert.ToDouble(stringWeight);
 
-            Console.Write($"Enter your {nameof(height)} (m) ");
+            Console.Write($"Enter your {nameof(Height)} (m) ");
             string stringHeight = Console.ReadLine();
-            height = Convert.ToDouble(stringHeight);
+            Height = Convert.ToDouble(stringHeight);
         }
     }
 }

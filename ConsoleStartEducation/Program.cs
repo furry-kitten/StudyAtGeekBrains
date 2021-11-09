@@ -11,7 +11,8 @@ namespace ConsoleStartEducation
     class Program
     {
         static void Main(string[] args) {
-            var lesson1 = new Lesson1();
+            var lesson2 = new Lesson2(null);
+            var lesson1 = new Lesson1(lesson2);
             lesson1.Execute();
         }
     }

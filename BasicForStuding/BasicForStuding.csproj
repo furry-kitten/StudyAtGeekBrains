@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BaseExercise.cs" />
     <Compile Include="BaseLesson.cs" />
+    <Compile Include="BaseStudingClass.cs" />
     <Compile Include="IBaseStudingClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

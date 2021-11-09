@@ -6,13 +6,13 @@ namespace FoundationsOfProgramming.Exercises.Lesson2
 {
     public class Exercise6: BaseExercise
     {
-        public Exercise6() {
-            Next = new Exercise7();
-        }
+        public Exercise6(BaseExercise next) : base(next) { }
 
-        public override string Description { get; set; } = "Написать программу обмена значениями двух переменных типа int без использования вспомогательных методов.\r\nа) с использованием третьей переменной;\r\nб) *без использования третьей переменной.";
+        public override string Description { get; set; } = "Написать программу подсчета количества «хороших» чисел в диапазоне от 1 до 1 000 000 000. " +
+                                                           "«Хорошим» называется число, которое делится на сумму своих цифр. " +
+                                                           "Реализовать подсчёт времени выполнения программы, используя структуру DateTime.";
 
-        public override string Name { get; set; } = "Написать программу обмена значениями двух переменных типа int";
+        public override string Name { get; set; } = "Подсчета количества «хороших» чисел.";
 
         public int num1 { get; private set; }
 

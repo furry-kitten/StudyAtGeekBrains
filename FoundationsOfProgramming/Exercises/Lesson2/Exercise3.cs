@@ -5,13 +5,11 @@ namespace FoundationsOfProgramming.Exercises.Lesson2
 {
     public class Exercise3 : BaseExercise
     {
-        public Exercise3() {
-            Next = new Exercise4();
-        }
+        public Exercise3(BaseExercise next) : base(next) { }
 
-        public override string Description { get; set; } = "а) Написать программу, которая подсчитывает расстояние между точками с координатами x1, y1 и x2,y2 по формуле r=Math.Sqrt(Math.Pow(x2-x1,2)+Math.Pow(y2-y1,2). Вывести результат, используя спецификатор формата .2f (с двумя знаками после запятой);\r\nб) *Выполнить предыдущее задание, оформив вычисления расстояния между точками в виде метода.";
+        public override string Description { get; set; } = "С клавиатуры вводятся числа, пока не будет введен 0.\r\nПодсчитать сумму всех нечетных положительных чисел.";
 
-        public override string Name { get; set; } = "Подсчитать расстояние между точками";
+        public override string Name { get; set; } = "Подсчитать сумму всех нечетных положительных чисел.";
 
         public double x1 { get; set; }
 
