@@ -21,9 +21,11 @@ namespace FoundationsOfProgramming.Lessons
                 exercise4,
                 exercise5
             };
+
+            Description = $"In this lesson we have {Exercises.Count} exercises";
         }
 
-        public override string Description { get; set; } = "In this lesson we have 5 exercises";
+        public override string Description { get; set; }
 
         public override string Name { get; set; } = "C# language basics";
     }

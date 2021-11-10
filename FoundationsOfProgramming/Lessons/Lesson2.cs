@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using BasicForStuding;
 using FoundationsOfProgramming.Exercises.Lesson2;
 
@@ -26,8 +27,8 @@ namespace FoundationsOfProgramming.Lessons
             };
         }
 
-        public override string Description { get; set; }
+        public override string Description { get; set; } = String.Empty;
 
-        public override string Name { get; set; }
+        public override string Name { get; set; } = "Управляющие конструкции";
     }
 }

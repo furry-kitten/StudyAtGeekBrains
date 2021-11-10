@@ -38,13 +38,10 @@ namespace BasicForStuding
         }
 
         protected override void WriteGeneralInformation() {
-            Clean();
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine($"**********************{Name}**********************");
-            Console.WriteLine(Description);
-            Console.WriteLine();
+            base.WriteGeneralInformation();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.CursorTop += 2;
             WriteAllExercises();
-            Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
         }
 
@@ -124,6 +121,7 @@ namespace BasicForStuding
         }
 
         protected virtual void WriteAllExercises() {
+            Console.WriteLine("Exercises:");
             for (int i = 0; i < Exercises.Count; i++) {
                 Console.WriteLine($"{i} - {Exercises[i].Name}");
             }

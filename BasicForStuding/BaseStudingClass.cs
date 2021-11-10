@@ -27,9 +27,18 @@ namespace BasicForStuding
         protected virtual void WriteGeneralInformation() {
             Clean();
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine($"**********************{Name}**********************");
-            Console.WriteLine(Description);
+            int halfLengthPersonalData = Name.Length / 2;
+            int halfWidthOfCurrentWindow = Console.WindowWidth / 2;
+            int widthOfCurrentWindow = halfWidthOfCurrentWindow - halfLengthPersonalData;
+            Console.CursorLeft = widthOfCurrentWindow;
             Console.WriteLine();
+            if (Console.CursorLeft < widthOfCurrentWindow) {
+                Console.Write(new string('~', Console.WindowWidth));
+            }
+            Console.CursorLeft = widthOfCurrentWindow;
+            Console.CursorTop -= 1;
+            Console.WriteLine($"{Name}");
+            Console.WriteLine(Description);
             Console.ForegroundColor = ConsoleColor.White;
         }
 
@@ -41,6 +50,7 @@ namespace BasicForStuding
 
         protected virtual ConsoleKeyInfo GetChoice() {
             Console.ForegroundColor = ConsoleColor.Blue;
+            Console.CursorTop += 1;
             Console.WriteLine("\nWhat shell we do next?");
             Console.WriteLine($"{ConsoleKey.Enter} - Perform/Repeat \"{Name}\"");
             if (Next != null) {

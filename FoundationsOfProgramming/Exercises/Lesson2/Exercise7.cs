@@ -8,7 +8,7 @@ namespace FoundationsOfProgramming.Exercises.Lesson2
         public Exercise7(BaseExercise next) : base(next) { }
 
         public override string Description { get; set; } = "a) Разработать рекурсивный метод, который выводит на экран числа от a до b(a<b).\r\n" +
-                                                    "б) *Разработать рекурсивный метод, который считает сумму чисел от a до b.";
+                                                           "б) *Разработать рекурсивный метод, который считает сумму чисел от a до b.";
 
         public override string Name { get; set; } = "Рекурсивный метод.";
 
