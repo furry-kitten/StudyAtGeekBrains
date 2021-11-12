@@ -35,12 +35,14 @@ namespace FoundationsOfProgramming.Exercises.Lesson2
             Sum = 0;
             List<double> positiveNumbers = Numbers.FindAll(num => num > 0);
             foreach (double number in positiveNumbers) {
-                Sum += number;
+                if (number % 2 == 1) {
+                    Sum += number;
+                }
             }
         }
 
         protected override void SetResult() {
-            Result = $"Total numbers: {Numbers.Count}\r\n" + 
+            Result = $"Total numbers: {Numbers.Count}\r\n" +
                      $"The sum of positive: {Sum}";
         }
     }
