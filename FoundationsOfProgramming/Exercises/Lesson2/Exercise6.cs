@@ -16,7 +16,7 @@ namespace FoundationsOfProgramming.Exercises.Lesson2
 
         public override string Name { get; set; } = "Подсчета количества «хороших» чисел.";
 
-        public int Count { get; private set; }
+        public int Count { get; private set; } = 1;
 
         public TimeSpan ProgramExecutionTime { get; private set; }
 
@@ -33,7 +33,7 @@ namespace FoundationsOfProgramming.Exercises.Lesson2
         }
 
         private void SetCount() {
-            for (int i = 1; i < 1000000000; i++) {
+            for (int i = 0; i < 1000000000; i++) {
                 if (IsGoodNumber(i)) {
                     Count++;
                 }
