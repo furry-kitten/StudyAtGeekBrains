@@ -25,9 +25,11 @@ namespace FoundationsOfProgramming.Lessons
                 exercise6,
                 exercise7
             };
+
+            Description = $"In this lesson we have {Exercises.Count} exercises";
         }
 
-        public override string Description { get; set; } = String.Empty;
+        public override string Description { get; set; }
 
         public override string Name { get; set; } = "Управляющие конструкции";
     }

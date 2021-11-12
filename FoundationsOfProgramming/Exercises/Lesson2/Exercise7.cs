@@ -12,28 +12,55 @@ namespace FoundationsOfProgramming.Exercises.Lesson2
 
         public override string Name { get; set; } = "Рекурсивный метод.";
 
-        public string PersonalData { get; set; }
+        public double FirstNumber { get; private set; }
 
-        public int CursorXPosition { get; set; }
+        public double SecondNumber { get; private set; }
 
-        public int CursorYPosition { get; set; }
-
-        protected override void GetResult() {
-            Console.CursorLeft = CursorXPosition;
-            Console.CursorTop = CursorYPosition;
-            base.GetResult();
-        }
+        public double Sum { get; private set; } = 0;
 
         protected override void ExecuteExercise() {
-            int halfLengthPersonalData = PersonalData.Length / 2;
-            int halfWidthOfCurrentWindow = Console.WindowWidth / 2;
-            int halfHeightOfCurrentWindow = Console.WindowHeight / 2;
-            CursorXPosition = halfWidthOfCurrentWindow - halfLengthPersonalData;
-            CursorYPosition = halfHeightOfCurrentWindow;
+            GetNumbers();
+            WriteAllNumbersBetweenXAndY(FirstNumber);
+            Sum = CalculeteSum(FirstNumber);
         }
 
         protected override void SetResult() {
-            Result = PersonalData;
+            Result = $"Sum of all numbers between {FirstNumber} and {SecondNumber}";
+        }
+
+        private void GetNumbers() {
+            FirstNumber = GetDoubleFromUserDate("Enter the first number ");
+            SecondNumber = GetDoubleFromUserDate("Enter the second number ");
+            if (FirstNumber > SecondNumber) {
+                WriteExceptionMessage($"Second number must be greater than first number");
+                GetNumbers();
+            }
+        }
+
+        private void WriteAllNumbersBetweenXAndY(double startNumber) {
+            if (startNumber >= SecondNumber) {
+                return;
+            }
+
+            var num1 = (int)startNumber;
+            var num2 = (int)FirstNumber;
+            int n = 10 - Math.Abs(num2 % 10);
+            n = n == 10 ? 0 : n;
+            int n1 = Math.Abs(num1) - n;
+            bool isNumberTheTenth = Math.Abs(n1 % 10) == 0;
+            Console.Write(isNumberTheTenth ? "\r\n" : " ");
+            Console.Write($"{startNumber} ");
+            WriteAllNumbersBetweenXAndY(++startNumber);
+        }
+
+        private double CalculeteSum(double startNumber) {
+            if (startNumber >= SecondNumber) {
+                return startNumber;
+            }
+
+            startNumber += CalculeteSum(++startNumber);
+
+            return startNumber;
         }
     }
 }

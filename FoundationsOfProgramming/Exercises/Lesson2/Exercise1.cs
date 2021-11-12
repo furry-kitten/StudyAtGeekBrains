@@ -1,23 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using BasicForStuding;
 
 namespace FoundationsOfProgramming.Exercises.Lesson2
 {
     public class Exercise1 : BaseExercise
     {
-        private string fullName;
-
-        private byte age;
-
-        private byte growth;
-
-        private short weight;
-
-        private string format = "\nInformation about you" +
-                                "\nfull name\t|\t{0}" +
-                                $"\n{nameof(age)}\t\t|\t{1}" +
-                                $"\n{nameof(growth)}\t\t|\t{2}" +
-                                $"\n{nameof(weight)}\t\t|\t{3}";
+        private int minNumber;
 
         public Exercise1(BaseExercise next) : base(next) { }
 
@@ -26,36 +16,32 @@ namespace FoundationsOfProgramming.Exercises.Lesson2
         public override string Name { get; set; } = "Найти минимум";
 
         protected override void ExecuteExercise() {
-            SetFIO();
-            SetPersonParametrs();
+            int[] numbers = GetNumbers();
+            minNumber = GetMin(numbers);
+            SetResult();
         }
 
         protected override void SetResult() {
-            Result = string.Format(format, fullName, age, growth, weight);
+            Result = $"Minimum is {minNumber}";
         }
 
-        private void SetPersonParametrs() {
-            Console.Write($"Your {nameof(age)}: ");
-            string stringAge = Console.ReadLine();
-            age = Convert.ToByte(stringAge);
+        private int[] GetNumbers() {
+            int num1 = GetInt32FromUserDate($"Your first number: ");
+            int num2 = GetInt32FromUserDate($"Your second number: ");
+            int num3 = GetInt32FromUserDate($"Your third number: ");
 
-            Console.Write($"Your {nameof(growth)}: ");
-            string stringGrowth = Console.ReadLine();
-            growth = Convert.ToByte(stringGrowth);
-
-            Console.Write($"Your {nameof(weight)}: ");
-            string stringWeight = Console.ReadLine();
-            weight = Convert.ToInt16(stringWeight);
+            return new[] {num1, num2, num3};
         }
 
-        private void SetFIO() {
-            Console.Write("Your name: ");
-            string name = Console.ReadLine();
+        private int GetMin(IEnumerable<int> numbers) {
+            int min = numbers.First();
+            foreach (int number in numbers) {
+                if (min > number) {
+                    min = number;
+                }
+            }
 
-            Console.Write("Your surname: ");
-            string surname = Console.ReadLine();
-
-            fullName = $"{name} {surname}";
+            return min;
         }
     }
 }

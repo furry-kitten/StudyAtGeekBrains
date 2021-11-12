@@ -40,14 +40,8 @@ namespace FoundationsOfProgramming.Exercises.Lesson1
         }
 
         private void GetNumbers() {
-            Console.Write("Enter first number ");
-            string stringNum1 = Console.ReadLine();
-
-            Console.Write("Enter second number ");
-            string stringNum2 = Console.ReadLine();
-
-            Num1 = Convert.ToInt32(stringNum1);
-            Num2 = Convert.ToInt32(stringNum2);
+            Num1 = GetInt32FromUserDate("Enter first number ");
+            Num2 = GetInt32FromUserDate("Enter second number ");
         }
 
         protected override void SetResult() {

@@ -31,13 +31,8 @@ namespace FoundationsOfProgramming.Exercises.Lesson1
         }
 
         private void SetPersonParameters() {
-            Console.Write($"Enter your {nameof(Weight)} (kg) ");
-            string stringWeight = Console.ReadLine();
-            Weight = Convert.ToDouble(stringWeight);
-
-            Console.Write($"Enter your {nameof(Height)} (m) ");
-            string stringHeight = Console.ReadLine();
-            Height = Convert.ToDouble(stringHeight);
+            Weight = GetDoubleFromUserDate($"Enter your {nameof(Weight)} (kg) ");
+            Height = GetDoubleFromUserDate($"Enter your {nameof(Height)} (m) ");
         }
     }
 }

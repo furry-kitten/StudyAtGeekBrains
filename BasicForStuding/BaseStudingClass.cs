@@ -16,6 +16,8 @@ namespace BasicForStuding
 
         public abstract (bool Next, bool Previous, bool Close) Execute();
 
+        public (bool Next, bool Previous, bool Close) NextAction { get; set; } = default;
+
         protected void WriteExceptionMessage(string message) {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(message);
@@ -40,12 +42,26 @@ namespace BasicForStuding
             Console.WriteLine($"{Name}");
             Console.WriteLine(Description);
             Console.ForegroundColor = ConsoleColor.White;
+            Console.CursorTop += 2;
         }
 
-        protected virtual (bool Next, bool Previous, bool Close) GoToNextAction() {
+        protected virtual void GoToNextAction() {
             ConsoleKeyInfo key = GetChoice();
+            SetNextAction(key);
+            
+            if (NextAction.Next && Next == null) {
+                NextAction = default;
+                Clean();
+                WriteExceptionMessage("Press any key for repeat");
+                Console.ReadKey();
+            }
 
-            return GetNextAction(key);
+            if (NextAction.Next ) {
+                NextAction = Next.Execute();
+                if (NextAction.Previous && !NextAction.Close) {
+                    NextAction = default;
+                }
+            }
         }
 
         protected virtual ConsoleKeyInfo GetChoice() {
@@ -58,7 +74,6 @@ namespace BasicForStuding
             }
 
             Console.WriteLine($"{ConsoleKey.PageDown} - Previous");
-            Console.WriteLine($"{ConsoleKey.Backspace} - Back");
             Console.WriteLine($"{ConsoleKey.Escape} - Close");
             Console.ForegroundColor = ConsoleColor.White;
 
@@ -66,13 +81,10 @@ namespace BasicForStuding
             return key;
         }
 
-        protected virtual (bool Next, bool Previous, bool Close) GetNextAction(ConsoleKeyInfo key) {
+        protected virtual void SetNextAction(ConsoleKeyInfo key) {
             (bool Next, bool Previous, bool Close) nextAction = default;
 
             switch (key.Key) {
-                case ConsoleKey.Enter:
-                    nextAction = default;
-                    break;
                 case ConsoleKey.Escape:
                     nextAction.Close = true;
                     break;
@@ -82,13 +94,9 @@ namespace BasicForStuding
                 case ConsoleKey.PageDown:
                     nextAction.Previous = true;
                     break;
-                case ConsoleKey.Backspace:
-                    nextAction.Previous = true;
-                    nextAction.Close = true;
-                    break;
             }
 
-            return nextAction;
+            NextAction = nextAction;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BasicForStuding;
 
 namespace FoundationsOfProgramming.Exercises.Lesson2
@@ -11,43 +12,36 @@ namespace FoundationsOfProgramming.Exercises.Lesson2
 
         public override string Name { get; set; } = "Подсчитать сумму всех нечетных положительных чисел.";
 
-        public double x1 { get; set; }
+        public List<double> Numbers { get; private set; }
 
-        public double x2 { get; set; }
-
-        public double y1 { get; set; }
-
-        public double y2 { get; set; }
-
-        public double distance { get; set; }
+        public double Sum { get; private set; }
 
         protected override void ExecuteExercise() {
-            GetPoints();
+            GetNumbers();
+            SetSum();
         }
 
-        private void GetPoints() {
-            Console.Write("Enter first point coordinates using whitespace (for example \"1 3\" where 1 - x, 3 - y)");
-            string firstPoint = Console.ReadLine();
-
-            Console.Write("Enter second point coordinates using whitespace (for example \"1 3\" where 1 - x, 3 - y)");
-            string secondPoint = Console.ReadLine();
-
-            ParsePoints(firstPoint, secondPoint);
+        private void GetNumbers() {
+            Numbers = new List<double>();
+            string messageForUser = "Enter the number (0 for stop) ";
+            double newNum = GetDoubleFromUserDate(messageForUser);
+            while (newNum > 0 || newNum < 0) {
+                Numbers.Add(newNum);
+                newNum = GetDoubleFromUserDate(messageForUser);
+            }
         }
 
-        private void ParsePoints(string firstPoint, string secondPoint) {
-            string[] firstPointCoordinates = firstPoint.Split(' ');
-            string[] secondPointCoordinates = secondPoint.Split(' ');
-
-            x1 = Convert.ToDouble(firstPointCoordinates[0]);
-            y1 = Convert.ToDouble(firstPointCoordinates[1]);
-            x2 = Convert.ToDouble(secondPointCoordinates[0]);
-            y2 = Convert.ToDouble(secondPointCoordinates[1]);
+        private void SetSum() {
+            Sum = 0;
+            List<double> positiveNumbers = Numbers.FindAll(num => num > 0);
+            foreach (double number in positiveNumbers) {
+                Sum += number;
+            }
         }
 
         protected override void SetResult() {
-            distance = Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
-            Result = $"The {nameof(distance)} of points A({x1},{y1}) B({x2},{y2}) is {distance}";
+            Result = $"Total numbers: {Numbers.Count}\r\n" + 
+                     $"The sum of positive: {Sum}";
         }
     }
 }

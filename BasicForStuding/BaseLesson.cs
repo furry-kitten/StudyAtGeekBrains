@@ -10,42 +10,23 @@ namespace BasicForStuding
         public List<BaseExercise> Exercises { get; protected set; }
 
         public override (bool Next, bool Previous, bool Close) Execute() {
-            (bool Next, bool Previous, bool Close) nextAction = default;
-
-            while (!nextAction.Close && !nextAction.Next && !nextAction.Previous) {
+            NextAction = default;
+            while (!NextAction.Close && !NextAction.Next && !NextAction.Previous) {
                 WriteGeneralInformation();
-                nextAction = GoToNextAction();
-
-                if (nextAction.Next) {
-                    (bool Next, bool Previous, bool Close) nextActionOfNextExercise;
-                    if (Next != null) {
-                        nextActionOfNextExercise = Next.Execute();
-                    } else {
-                        nextAction = nextActionOfNextExercise = default;
-                        Clean();
-                        WriteExceptionMessage("Press any key for repeat");
-                        Console.ReadKey();
-                    }
-
-                    if (nextActionOfNextExercise.Previous &&
-                        !nextActionOfNextExercise.Close) {
-                        nextAction = default;
-                    }
-                }
+                GoToNextAction();
             }
 
-            return nextAction;
+            return NextAction;
         }
 
         protected override void WriteGeneralInformation() {
             base.WriteGeneralInformation();
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.CursorTop += 2;
             WriteAllExercises();
             Console.ForegroundColor = ConsoleColor.White;
         }
 
-        protected override (bool Next, bool Previous, bool Close) GetNextAction(ConsoleKeyInfo key) {
+        protected override void SetNextAction(ConsoleKeyInfo key) {
             (bool Next, bool Previous, bool Close) nextAction = default;
 
             switch (key.Key) {
@@ -60,10 +41,6 @@ namespace BasicForStuding
                     break;
                 case ConsoleKey.PageDown:
                     nextAction.Previous = true;
-                    break;
-                case ConsoleKey.Backspace:
-                    nextAction.Previous = true;
-                    nextAction.Close = true;
                     break;
                 case ConsoleKey.D0:
                 case ConsoleKey.NumPad0:
@@ -107,7 +84,7 @@ namespace BasicForStuding
                     break;
             }
 
-            return nextAction;
+            NextAction = nextAction;
         }
 
         protected virtual void ExecuteExercise(int i) {

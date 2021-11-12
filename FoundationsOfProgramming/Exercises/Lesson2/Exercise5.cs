@@ -34,11 +34,11 @@ namespace FoundationsOfProgramming.Exercises.Lesson2
         }
 
         private string GetAdvice() {
-            if (Bmi > 18.5) {
-                if (Bmi > 25) {
-                    if (Bmi > 30) {
-                        if (Bmi > 35) {
-                            if (Bmi > 40) {
+            if (Bmi >= 18.5) {
+                if (Bmi >= 25) {
+                    if (Bmi >= 30) {
+                        if (Bmi >= 35) {
+                            if (Bmi >= 40) {
                                 return string.Format(DegreeOfObesity, ThirdDegreeOfObesity);
                             }
 
