@@ -31,15 +31,9 @@ namespace BasicForStuding
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             int halfLengthPersonalData = Name.Length / 2;
             int halfWidthOfCurrentWindow = Console.WindowWidth / 2;
-            int widthOfCurrentWindow = halfWidthOfCurrentWindow - halfLengthPersonalData;
-            Console.CursorLeft = widthOfCurrentWindow;
-            Console.WriteLine();
-            if (Console.CursorLeft < widthOfCurrentWindow) {
-                Console.Write(new string('~', Console.WindowWidth));
-            }
-            Console.CursorLeft = widthOfCurrentWindow;
-            Console.CursorTop -= 1;
-            Console.WriteLine($"{Name}");
+            int widthOfCurrentWindow = halfWidthOfCurrentWindow - halfLengthPersonalData - 1;
+            var squiggle = new string('~', widthOfCurrentWindow);
+            Console.Write($"{squiggle}{Name}{squiggle}\r\n");
             Console.WriteLine(Description);
             Console.ForegroundColor = ConsoleColor.White;
             Console.CursorTop += 2;
@@ -48,7 +42,7 @@ namespace BasicForStuding
         protected virtual void GoToNextAction() {
             ConsoleKeyInfo key = GetChoice();
             SetNextAction(key);
-            
+
             if (NextAction.Next && Next == null) {
                 NextAction = default;
                 Clean();
@@ -56,7 +50,7 @@ namespace BasicForStuding
                 Console.ReadKey();
             }
 
-            if (NextAction.Next ) {
+            if (NextAction.Next) {
                 NextAction = Next.Execute();
                 if (NextAction.Previous && !NextAction.Close) {
                     NextAction = default;

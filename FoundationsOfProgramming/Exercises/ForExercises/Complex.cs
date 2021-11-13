@@ -14,32 +14,25 @@ namespace FoundationsOfProgramming.Exercises.ForExercises
         /// <summary>
         /// Мнимая часть комплексного числа
         /// </summary>
-        private double im;
+        private double imaginaryPart;
 
         /// <summary>
         /// Действительная часть комплексного числа
         /// </summary>
-        private double re; // private
+        private double realPart; // private
 
         #endregion
 
         #region Свойства
 
-        public double Ip {
-            get => im;
-
-            set {
-                if (value == 0) {
-                    throw new Exception("Недопустимое значение.");
-                }
-
-                im = value;
-            }
+        public double ImaginaryPart {
+            get => imaginaryPart;
+            set => imaginaryPart = value;
         }
 
-        public double Rp {
-            get => re;
-            set => re = value;
+        public double RealPart {
+            get => realPart;
+            set => realPart = value;
         }
 
         #endregion
@@ -47,31 +40,74 @@ namespace FoundationsOfProgramming.Exercises.ForExercises
         #region Конструктор класса
 
         public Complex(double re, double im) {
-            if (im == 0) {
-                throw new Exception("Недопустимое значение.");
-            }
-
-            this.re = re;
-            this.im = im;
-
+            realPart = re;
+            imaginaryPart = im;
         }
 
-        private Complex() {
-
-        }
+        private Complex() { }
 
         #endregion
 
         #region Поведение (Methods)
+
+        public Complex Plus(Complex complex) => new Complex(realPart + complex.RealPart, imaginaryPart + complex.ImaginaryPart);
+
+        public Complex Mines(Complex complex) => new Complex(realPart - complex.RealPart, imaginaryPart - complex.ImaginaryPart);
+
+        public Complex Multiplication(Complex complex) => new Complex(realPart * complex.RealPart + imaginaryPart * complex.ImaginaryPart * (-1), realPart * complex.ImaginaryPart + imaginaryPart * complex.RealPart);
+
+        #endregion
+
+        #region Операторы
+
+        /// <summary>
+        /// Перегрузка оператора +, сложение комплексных чисел
+        /// </summary>
+        /// <param name="complex1">Комплексное число</param>
+        /// <param name="complex2">Комплексное число</param>
+        /// <returns>Результат сложения комплексных чисел</returns>
+        public static Complex operator +(Complex complex1, Complex complex2) =>
+            new Complex(complex1.RealPart + complex2.RealPart, complex1.ImaginaryPart + complex2.ImaginaryPart);
+
+        /// <summary>
+        /// Перегрузка оператора -, сложение комплексных чисел
+        /// </summary>
+        /// <param name="complex1">Комплексное число</param>
+        /// <param name="complex2">Комплексное число</param>
+        /// <returns>Результат сложения комплексных чисел</returns>
+        public static Complex operator -(Complex complex1, Complex complex2) =>
+            new Complex(complex1.RealPart - complex2.RealPart, complex1.ImaginaryPart - complex2.ImaginaryPart);
+
+        /// <summary>
+        /// Перегрузка оператора *, сложение комплексных чисел
+        /// </summary>
+        /// <param name="complex1">Комплексное число</param>
+        /// <param name="complex2">Комплексное число</param>
+        /// <returns>Результат сложения комплексных чисел</returns>
+        public static Complex operator *(Complex complex1, Complex complex2) =>
+            new Complex(complex1.RealPart * complex2.RealPart + complex1.ImaginaryPart * complex2.ImaginaryPart * (-1), complex1.RealPart * complex2.ImaginaryPart + complex1.ImaginaryPart * complex2.RealPart);
+
+        #endregion
+
+        public override string ToString() {
+            bool isRealPartCollapsed = realPart == 0;
+            bool isImaginaryPartCollapsed = imaginaryPart == 0;
+            if (isImaginaryPartCollapsed) {
+                return !isRealPartCollapsed ? $"{realPart}" : "0";
+            }
+
+            return !isRealPartCollapsed ? $"{realPart} + ({imaginaryPart}i)" : $"{imaginaryPart}i";
+        }
+    }
+    /*
+
+    
 
         public Complex Plus(Complex complex) => new Complex(re + complex.Rp, im + complex.Ip);
 
         public Complex Mines(Complex complex) => new Complex(re - complex.Rp, im - complex.Ip);
 
         public Complex Multiplication(Complex complex) => new Complex(re * complex.Rp + im * complex.Ip * (-1), re * complex.Ip + im * complex.Rp);
-
-        #endregion
-
-        public override string ToString() => re != 0 ? $"{re} + {im}i" : $"{im}i";
-    }
+     
+     */
 }

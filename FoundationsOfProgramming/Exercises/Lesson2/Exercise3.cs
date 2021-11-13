@@ -8,20 +8,22 @@ namespace FoundationsOfProgramming.Exercises.Lesson2
     {
         public Exercise3(BaseExercise next) : base(next) { }
 
-        public override string Description { get; set; } = "С клавиатуры вводятся числа, пока не будет введен 0.\r\nПодсчитать сумму всех нечетных положительных чисел.";
+        public override string Description { get; set; } = "Описать класс дробей — рациональных чисел, являющихся отношением двух целых чисел. " +
+                                                           "Предусмотреть методы сложения, вычитания, умножения и деления дробей. " +
+                                                           "Написать программу, демонстрирующую все разработанные элементы класса.";
 
-        public override string Name { get; set; } = "Подсчитать сумму всех нечетных положительных чисел.";
+        public override string Name { get; set; } = "Описать класс дробей.";
 
-        public List<double> Numbers { get; private set; }
+        public List<double> Numbers { get; protected set; }
 
-        public double Sum { get; private set; }
+        public double Sum { get; protected set; }
 
         protected override void ExecuteExercise() {
             GetNumbers();
             SetSum();
         }
 
-        private void GetNumbers() {
+        protected virtual void GetNumbers() {
             Numbers = new List<double>();
             string messageForUser = "Enter the number (0 for stop) ";
             double newNum = GetDoubleFromUserDate(messageForUser);
@@ -35,7 +37,9 @@ namespace FoundationsOfProgramming.Exercises.Lesson2
             Sum = 0;
             List<double> positiveNumbers = Numbers.FindAll(num => num > 0);
             foreach (double number in positiveNumbers) {
-                Sum += number;
+                if(number % 2 == 1) {
+                    Sum += number;
+                }
             }
         }
 
