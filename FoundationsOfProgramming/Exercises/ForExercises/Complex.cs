@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FoundationsOfProgramming.Exercises.ForExercises
 {
-    internal class Complex
+    internal struct Complex
     {
 
         #region Поля (Fields)
@@ -43,16 +43,13 @@ namespace FoundationsOfProgramming.Exercises.ForExercises
             realPart = re;
             imaginaryPart = im;
         }
-
-        private Complex() { }
-
         #endregion
 
         #region Поведение (Methods)
 
         public Complex Plus(Complex complex) => new Complex(realPart + complex.RealPart, imaginaryPart + complex.ImaginaryPart);
 
-        public Complex Mines(Complex complex) => new Complex(realPart - complex.RealPart, imaginaryPart - complex.ImaginaryPart);
+        public Complex Minus(Complex complex) => new Complex(realPart - complex.RealPart, imaginaryPart - complex.ImaginaryPart);
 
         public Complex Multiplication(Complex complex) => new Complex(realPart * complex.RealPart + imaginaryPart * complex.ImaginaryPart * (-1), realPart * complex.ImaginaryPart + imaginaryPart * complex.RealPart);
 
@@ -99,15 +96,4 @@ namespace FoundationsOfProgramming.Exercises.ForExercises
             return !isRealPartCollapsed ? $"{realPart} + ({imaginaryPart}i)" : $"{imaginaryPart}i";
         }
     }
-    /*
-
-    
-
-        public Complex Plus(Complex complex) => new Complex(re + complex.Rp, im + complex.Ip);
-
-        public Complex Mines(Complex complex) => new Complex(re - complex.Rp, im - complex.Ip);
-
-        public Complex Multiplication(Complex complex) => new Complex(re * complex.Rp + im * complex.Ip * (-1), re * complex.Ip + im * complex.Rp);
-     
-     */
 }

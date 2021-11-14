@@ -1,10 +1,15 @@
 ﻿using System.Collections.Generic;
 using BasicForStuding;
+using FoundationsOfProgramming.Exercises.ForExercises;
 
 namespace FoundationsOfProgramming.Exercises.Lesson3
 {
-    public class Exercise3 : BaseExercise
+    public class Exercise3 : Exercise1
     {
+        private FractionalNumber firstNumber;
+
+        private FractionalNumber secondNumber;
+
         public Exercise3(BaseExercise next) : base(next) { }
 
         public override string Description { get; set; } = "С клавиатуры вводятся числа, пока не будет введен 0.\r\nПодсчитать сумму всех нечетных положительных чисел.";
@@ -16,31 +21,29 @@ namespace FoundationsOfProgramming.Exercises.Lesson3
         public double Sum { get; private set; }
 
         protected override void ExecuteExercise() {
-            GetNumbers();
-            SetSum();
-        }
-
-        private void GetNumbers() {
-            Numbers = new List<double>();
-            string messageForUser = "Enter the number (0 for stop) ";
-            double newNum = GetDoubleFromUserDate(messageForUser);
-            while (newNum > 0 || newNum < 0) {
-                Numbers.Add(newNum);
-                newNum = GetDoubleFromUserDate(messageForUser);
-            }
-        }
-
-        private void SetSum() {
-            Sum = 0;
-            List<double> positiveNumbers = Numbers.FindAll(num => num > 0);
-            foreach (double number in positiveNumbers) {
-                Sum += number;
-            }
+            FractionalNumber[] complexNumbers = GetComplexNumbers();
+            firstNumber = complexNumbers[0];
+            secondNumber = complexNumbers[1];
         }
 
         protected override void SetResult() {
-            Result = $"Total numbers: {Numbers.Count}\r\n" + 
-                     $"The sum of positive: {Sum}";
+            Result = $"({firstNumber}) + ({secondNumber}) = {firstNumber + secondNumber}\n" +
+                     $"({firstNumber}) - ({secondNumber}) = {firstNumber - secondNumber}\n" +
+                     $"({firstNumber}) * ({secondNumber}) = {firstNumber * secondNumber}\n" +
+                     $"({firstNumber}) / ({secondNumber}) = {firstNumber / secondNumber}";
+        }
+
+        private FractionalNumber[] GetComplexNumbers() {
+            var fractionalNumberName = "fractional number";
+            int termOfFirstNumber = GetInt32FromUserDate($"Your term of first {fractionalNumberName} number: ");
+            int nominatorOfFirstNumber = GetInt32FromUserDate($"Your nominator of first {fractionalNumberName} number: ");
+            int termOfSecondNumber = GetInt32FromUserDate($"Your term second of {fractionalNumberName} number: ");
+            int nominatorOfSecondNumber = GetInt32FromUserDate($"Your nominator of second {fractionalNumberName} number: ");
+
+            return new[] {
+                new FractionalNumber(termOfFirstNumber, nominatorOfFirstNumber),
+                new FractionalNumber(termOfSecondNumber, nominatorOfSecondNumber)
+            };
         }
     }
 }
