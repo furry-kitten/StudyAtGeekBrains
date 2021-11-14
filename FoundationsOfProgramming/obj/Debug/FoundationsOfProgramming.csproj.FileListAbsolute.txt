@@ -1,0 +1,9 @@
+P:\Обучение GeekBrains\FoundationsOfProgramming\bin\Debug\FoundationsOfProgramming.dll
+P:\Обучение GeekBrains\FoundationsOfProgramming\bin\Debug\FoundationsOfProgramming.pdb
+P:\Обучение GeekBrains\FoundationsOfProgramming\bin\Debug\BasicForStuding.dll
+P:\Обучение GeekBrains\FoundationsOfProgramming\bin\Debug\BasicForStuding.pdb
+P:\Обучение GeekBrains\FoundationsOfProgramming\obj\Debug\FoundationsOfProgramming.csproj.AssemblyReference.cache
+P:\Обучение GeekBrains\FoundationsOfProgramming\obj\Debug\FoundationsOfProgramming.csproj.CoreCompileInputs.cache
+P:\Обучение GeekBrains\FoundationsOfProgramming\obj\Debug\FoundationsOfProgramming.dll
+P:\Обучение GeekBrains\FoundationsOfProgramming\obj\Debug\FoundationsOfProgramming.pdb
+P:\Обучение GeekBrains\FoundationsOfProgramming\obj\Debug\FoundationsOfProgramming.csproj.CopyComplete

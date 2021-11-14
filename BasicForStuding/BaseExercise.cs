@@ -2,16 +2,17 @@
 
 namespace BasicForStuding
 {
-    public abstract class BaseExercise<TNext> : IBaseStudingClass<TNext>
-        where TNext : IBaseStudingClass<TNext>, new()
+    public abstract class BaseExercise : IBaseStudingClass
     {
-        public string Description { get; set; }
-
-        public string Name { get; set; }
-
-        public TNext Next { get; set; }
-
         protected BaseExercise() { }
+
+        public string Result { get; protected set; }
+
+        public abstract string Description { get; set; }
+
+        public abstract string Name { get; set; }
+
+        public IBaseStudingClass Next { get; set; }
 
         public (bool Next, bool Previous, bool Close) Execute() {
             (bool Next, bool Previous, bool Close) nextAction = default;
@@ -19,6 +20,7 @@ namespace BasicForStuding
             while (!nextAction.Close && !nextAction.Next && !nextAction.Previous) {
                 WriteGeneralInformation();
                 ExecuteExercise();
+                GetResult();
                 nextAction = GoToNextAction();
 
                 if (nextAction.Next) {
@@ -35,14 +37,24 @@ namespace BasicForStuding
             return nextAction;
         }
 
+        protected virtual void GetResult() {
+            SetResult();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(Result);
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
         protected abstract void ExecuteExercise();
 
         protected void Clean() => Console.Clear();
 
         private void WriteGeneralInformation() {
             Clean();
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine($"**********************{Name}**********************");
             Console.WriteLine(Description);
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         private (bool Next, bool Previous, bool Close) GoToNextAction() {
@@ -52,9 +64,9 @@ namespace BasicForStuding
         }
 
         protected ConsoleKeyInfo GetChoice() {
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("\nWhat shell we do next?");
-            Console.WriteLine($"{ConsoleKey.Enter} - Perform/Repeat {Name}");
-
+            Console.WriteLine($"{ConsoleKey.Enter} - Perform/Repeat \"{Name}\"");
             if (Next != null) {
                 Console.WriteLine($"{ConsoleKey.PageUp} - Next \"{Next.Name}\"");
             }
@@ -62,6 +74,7 @@ namespace BasicForStuding
             Console.WriteLine($"{ConsoleKey.PageDown} - Previous");
             Console.WriteLine($"{ConsoleKey.Backspace} - Back");
             Console.WriteLine($"{ConsoleKey.Escape} - Close");
+            Console.ForegroundColor = ConsoleColor.White;
 
             ConsoleKeyInfo key = Console.ReadKey();
             return key;
@@ -91,5 +104,7 @@ namespace BasicForStuding
 
             return nextAction;
         }
+
+        protected abstract void SetResult();
     }
 }

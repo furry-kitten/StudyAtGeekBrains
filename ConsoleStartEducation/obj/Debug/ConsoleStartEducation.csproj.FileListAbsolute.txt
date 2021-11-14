@@ -1,0 +1,12 @@
+P:\Обучение GeekBrains\ConsoleStartEducation\bin\Debug\ConsoleStartEducation.exe.config
+P:\Обучение GeekBrains\ConsoleStartEducation\bin\Debug\ConsoleStartEducation.exe
+P:\Обучение GeekBrains\ConsoleStartEducation\bin\Debug\ConsoleStartEducation.pdb
+P:\Обучение GeekBrains\ConsoleStartEducation\bin\Debug\BasicForStuding.dll
+P:\Обучение GeekBrains\ConsoleStartEducation\bin\Debug\FoundationsOfProgramming.dll
+P:\Обучение GeekBrains\ConsoleStartEducation\bin\Debug\BasicForStuding.pdb
+P:\Обучение GeekBrains\ConsoleStartEducation\bin\Debug\FoundationsOfProgramming.pdb
+P:\Обучение GeekBrains\ConsoleStartEducation\obj\Debug\ConsoleStartEducation.csproj.AssemblyReference.cache
+P:\Обучение GeekBrains\ConsoleStartEducation\obj\Debug\ConsoleStartEducation.csproj.CoreCompileInputs.cache
+P:\Обучение GeekBrains\ConsoleStartEducation\obj\Debug\ConsoleStartEducation.exe
+P:\Обучение GeekBrains\ConsoleStartEducation\obj\Debug\ConsoleStartEducation.pdb
+P:\Обучение GeekBrains\ConsoleStartEducation\obj\Debug\ConsoleStartEducation.csproj.CopyComplete

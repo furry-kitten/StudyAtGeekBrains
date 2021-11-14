@@ -4,3 +4,9 @@ P:\Обучение GeekBrains\BasicForStading\obj\Debug\BasicForStuding.csproj.
 P:\Обучение GeekBrains\BasicForStading\obj\Debug\BasicForStuding.csproj.CoreCompileInputs.cache
 P:\Обучение GeekBrains\BasicForStading\obj\Debug\BasicForStuding.dll
 P:\Обучение GeekBrains\BasicForStading\obj\Debug\BasicForStuding.pdb
+P:\Обучение GeekBrains\BasicForStuding\bin\Debug\BasicForStuding.dll
+P:\Обучение GeekBrains\BasicForStuding\bin\Debug\BasicForStuding.pdb
+P:\Обучение GeekBrains\BasicForStuding\obj\Debug\BasicForStuding.csproj.CoreCompileInputs.cache
+P:\Обучение GeekBrains\BasicForStuding\obj\Debug\BasicForStuding.dll
+P:\Обучение GeekBrains\BasicForStuding\obj\Debug\BasicForStuding.pdb
+P:\Обучение GeekBrains\BasicForStuding\obj\Debug\BasicForStuding.csproj.AssemblyReference.cache
