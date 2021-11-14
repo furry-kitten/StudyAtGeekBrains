@@ -21,6 +21,7 @@ namespace BasicForStuding
         }
 
         protected virtual void GetResult() {
+            Console.WriteLine();
             Console.CursorTop += 1;
             SetResult();
             Console.ForegroundColor = ConsoleColor.Green;

@@ -33,7 +33,7 @@ namespace FoundationsOfProgramming.Exercises.Lesson2
         }
 
         private void SetCount() {
-            for (int i = 0; i < 1000000000; i++) {
+            for (int i = 1; i < 1000000000; i++) {
                 if (IsGoodNumber(i)) {
                     Count++;
                 }
