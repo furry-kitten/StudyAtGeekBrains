@@ -8,11 +8,10 @@ namespace FoundationsOfProgramming.Exercises.Lesson2
     {
         public Exercise3(BaseExercise next) : base(next) { }
 
-        public override string Description { get; set; } = "Описать класс дробей — рациональных чисел, являющихся отношением двух целых чисел. " +
-                                                           "Предусмотреть методы сложения, вычитания, умножения и деления дробей. " +
-                                                           "Написать программу, демонстрирующую все разработанные элементы класса.";
+        public override string Description { get; set; } = "С клавиатуры вводятся числа, пока не будет введен 0. " +
+                                                           "Подсчитать сумму всех нечетных положительных чисел.";
 
-        public override string Name { get; set; } = "Описать класс дробей.";
+        public override string Name { get; set; } = "Подсчитать сумму всех нечетных положительных чисел.";
 
         public List<double> Numbers { get; protected set; }
 
