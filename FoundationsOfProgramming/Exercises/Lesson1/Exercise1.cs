@@ -19,16 +19,14 @@ namespace FoundationsOfProgramming.Exercises.Lesson1
                                 $"\n{nameof(growth)}\t\t|\t{2}" +
                                 $"\n{nameof(weight)}\t\t|\t{3}";
 
-        public Exercise1() {
-            Next = new Exercise2();
-        }
+        public Exercise1(BaseExercise next) : base(next) { }
 
         public override string Description { get; set; } = "Последовательно задаются вопросы (имя, фамилия, возраст, рост, вес). В результате вся информация выводится в одну строчку:\r\nа) используя склеивание;\r\nб) используя форматированный вывод;\r\nв) используя вывод со знаком $.";
 
         public override string Name { get; set; } = "Написать программу «Анкета»";
 
         protected override void ExecuteExercise() {
-            SetFIO();
+            SetFio();
             SetPersonParametrs();
         }
 
@@ -50,7 +48,7 @@ namespace FoundationsOfProgramming.Exercises.Lesson1
             weight = Convert.ToInt16(stringWeight);
         }
 
-        private void SetFIO() {
+        private void SetFio() {
             Console.Write("Your name: ");
             string name = Console.ReadLine();
 

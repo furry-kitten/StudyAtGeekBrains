@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Text;
-using System.Threading.Tasks;
 using BasicForStuding;
 
 namespace FoundationsOfProgramming.Exercises.Lesson1
 {
     public class Exercise5 : BaseExercise
     {
+        public Exercise5(BaseExercise next) : base(next) { }
+
         public override string Description { get; set; } = "а) Написать программу, которая выводит на экран ваше имя, фамилию и город проживания.\r\nб) Сделать задание, только вывод организовать в центре экрана.\r\nв) *Сделать задание б с использованием собственных методов (например, Print(string ms, int x,int y).";
 
         public override string Name { get; set; } = "Вывод личных данных";

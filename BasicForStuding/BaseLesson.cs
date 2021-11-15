@@ -1,75 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BasicForStuding
 {
-    public abstract class BaseLesson : IBaseStudingClass
+    public abstract class BaseLesson : BaseStudingClass
     {
-        public abstract string Description { get; set; }
+        protected BaseLesson(BaseLesson next) : base(next) { }
 
-        public abstract string Name { get; set; }
+        public List<BaseExercise> Exercises { get; protected set; }
 
-        public IBaseStudingClass Next { get; set; }
-
-        public abstract List<BaseExercise> Exercises { get; }
-
-        public (bool Next, bool Previous, bool Close) Execute() {
-            (bool Next, bool Previous, bool Close) nextAction = default;
-
-            while (!nextAction.Close && !nextAction.Next && !nextAction.Previous) {
+        public override (bool Next, bool Previous, bool Close) Execute() {
+            NextAction = default;
+            while (!NextAction.Close && !NextAction.Next && !NextAction.Previous) {
                 WriteGeneralInformation();
-                nextAction = GoToNextAction();
-
-                if (nextAction.Next) {
-                    (bool Next, bool Previous, bool Close) nextActionOfNextExercise = Next.Execute();
-
-                    if (nextActionOfNextExercise.Previous &&
-                        !nextActionOfNextExercise.Close) {
-                        Clean();
-                        WriteGeneralInformation();
-                        nextAction = GoToNextAction();
-                    }
-                }
+                GoToNextAction();
             }
 
-            return nextAction;
+            return NextAction;
         }
 
-        //protected abstract void ExecuteExercise();
-
-        protected void Clean() => Console.Clear();
-
-        private void WriteGeneralInformation() {
-            Clean();
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine($"**********************{Name}**********************");
-            Console.WriteLine(Description);
+        protected override void WriteGeneralInformation() {
+            Description += "\r\nAuthor Tokarev Vladimir";
+            base.WriteGeneralInformation();
+            Console.ForegroundColor = ConsoleColor.Yellow;
             WriteAllExercises();
-            Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
         }
 
-        protected ConsoleKeyInfo GetChoice() {
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("\nWhat shell we do next?");
-            Console.WriteLine($"{ConsoleKey.Enter} - Perform/Repeat \"{Name}\"");
-
-            if (Next != null) {
-                Console.WriteLine($"{ConsoleKey.PageUp} - Next \"{Next.Name}\"");
-            }
-
-            Console.WriteLine($"{ConsoleKey.PageDown} - Previous");
-            Console.WriteLine($"{ConsoleKey.Backspace} - Back");
-            Console.WriteLine($"{ConsoleKey.Escape} - Close");
-
-            ConsoleKeyInfo key = Console.ReadKey();
-            return key;
-        }
-
-        protected (bool Next, bool Previous, bool Close) GetNextAction(ConsoleKeyInfo key) {
+        protected override void SetNextAction(ConsoleKeyInfo key) {
             (bool Next, bool Previous, bool Close) nextAction = default;
 
             switch (key.Key) {
@@ -84,10 +42,6 @@ namespace BasicForStuding
                     break;
                 case ConsoleKey.PageDown:
                     nextAction.Previous = true;
-                    break;
-                case ConsoleKey.Backspace:
-                    nextAction.Previous = true;
-                    nextAction.Close = true;
                     break;
                 case ConsoleKey.D0:
                 case ConsoleKey.NumPad0:
@@ -131,7 +85,7 @@ namespace BasicForStuding
                     break;
             }
 
-            return nextAction;
+            NextAction = nextAction;
         }
 
         protected virtual void ExecuteExercise(int i) {
@@ -145,15 +99,10 @@ namespace BasicForStuding
         }
 
         protected virtual void WriteAllExercises() {
+            Console.WriteLine("Exercises:");
             for (int i = 0; i < Exercises.Count; i++) {
                 Console.WriteLine($"{i} - {Exercises[i].Name}");
             }
-        }
-
-        private (bool Next, bool Previous, bool Close) GoToNextAction() {
-            ConsoleKeyInfo key = GetChoice();
-
-            return GetNextAction(key);
         }
     }
 }
