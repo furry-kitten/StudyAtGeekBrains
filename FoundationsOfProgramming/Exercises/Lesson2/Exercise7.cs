@@ -25,7 +25,7 @@ namespace FoundationsOfProgramming.Exercises.Lesson2
         }
 
         protected override void SetResult() {
-            Result = $"Sum of all numbers between {FirstNumber} and {SecondNumber}";
+            Result = $"Sum of all numbers between {FirstNumber} and {SecondNumber} is {Sum}";
         }
 
         private void GetNumbers() {
@@ -38,7 +38,7 @@ namespace FoundationsOfProgramming.Exercises.Lesson2
         }
 
         private void WriteAllNumbersBetweenXAndY(double startNumber) {
-            if (startNumber >= SecondNumber) {
+            if (startNumber > SecondNumber) {
                 return;
             }
 

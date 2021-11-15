@@ -16,7 +16,7 @@ namespace FoundationsOfProgramming.Exercises.Lesson2
 
         public override string Name { get; set; } = "Подсчета количества «хороших» чисел.";
 
-        public int Count { get; private set; }
+        public int Count { get; private set; } = 1;
 
         public TimeSpan ProgramExecutionTime { get; private set; }
 

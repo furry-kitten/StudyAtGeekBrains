@@ -1,4 +1,5 @@
-﻿using BasicForStuding;
+﻿using System;
+using BasicForStuding;
 using L1 = FoundationsOfProgramming.Exercises.Lesson1;
 
 namespace FoundationsOfProgramming.Exercises.Lesson2
@@ -9,11 +10,13 @@ namespace FoundationsOfProgramming.Exercises.Lesson2
 
         private const string Normal = "Your BMI is normal.";
 
-        private const string Overweight = "You are overweight.";
+        private const string Overweight = "You are overweight. You have to lose {0} kg";
 
-        private const string Underweight = "You are underweight.";
+        private const string Underweight = "You are underweight. You have to gain {0} kg";
 
-        private const string DegreeOfObesity = "You have the {0} degree of obesity.";
+        private const string SeriousUnderweight = "You are seriously underweight. You have to gain {0} kg";
+
+        private const string DegreeOfObesity = "You have the {0} degree of obesity. You have to lose {1} kg";
 
         private const string FirstDegreeOfObesity = "first";
 
@@ -34,27 +37,54 @@ namespace FoundationsOfProgramming.Exercises.Lesson2
         }
 
         private string GetAdvice() {
-            if (Bmi >= 18.5) {
-                if (Bmi >= 25) {
-                    if (Bmi >= 30) {
-                        if (Bmi >= 35) {
-                            if (Bmi >= 40) {
-                                return string.Format(DegreeOfObesity, ThirdDegreeOfObesity);
+            const double normal1 = 18.5;
+            const double normal2 = 25;
+            double neededMass;
+            if (Bmi >= 16.5) {
+                if (Bmi >= 18.5) {
+                    if (Bmi >= 25) {
+                        if (Bmi >= 30) {
+                            if (Bmi >= 35) {
+                                if (Bmi >= 40) {
+                                    neededMass = LoseWeight(normal2);
+
+                                    return string.Format(DegreeOfObesity, ThirdDegreeOfObesity, neededMass.ToString("F"));
+                                }
+
+                                neededMass = LoseWeight(normal2);
+
+                                return string.Format(DegreeOfObesity, SecondDegreeOfObesity, neededMass.ToString("F"));
                             }
 
-                            return string.Format(DegreeOfObesity, SecondDegreeOfObesity);
+                            neededMass = LoseWeight(normal2);
+
+                            return string.Format(DegreeOfObesity, FirstDegreeOfObesity, neededMass.ToString("F"));
                         }
 
-                        return string.Format(DegreeOfObesity, FirstDegreeOfObesity);
+                        neededMass = LoseWeight(normal2);
+
+                        return string.Format(Overweight, neededMass.ToString("F"));
                     }
 
-                    return Overweight;
+                    return $"{Normal}";
                 }
 
-                return Normal;
+                neededMass = GainWeight(normal1);
+
+                return string.Format(Underweight, neededMass.ToString("F"));
             }
 
-            return Underweight;
+            neededMass = GainWeight(normal1);
+
+            return string.Format(SeriousUnderweight, neededMass.ToString("F"));
+        }
+
+        private double GainWeight(double i) {
+            return (i - Bmi) * Math.Pow(Height, 2);
+        }
+
+        private double LoseWeight(double i) {
+            return (Bmi - i) * Math.Pow(Height, 2);
         }
     }
 }

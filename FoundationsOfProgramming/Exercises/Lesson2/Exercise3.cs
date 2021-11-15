@@ -43,7 +43,7 @@ namespace FoundationsOfProgramming.Exercises.Lesson2
         }
 
         protected override void SetResult() {
-            Result = $"Total numbers: {Numbers.Count}\r\n" + 
+            Result = $"Total numbers: {Numbers.Count}\r\n" +
                      $"The sum of positive: {Sum}";
         }
     }
