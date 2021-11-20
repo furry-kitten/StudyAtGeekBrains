@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exercises\ForExercises\Complex.cs" />
+    <Compile Include="Exercises\ForExercises\FractionalNumber.cs" />
     <Compile Include="Exercises\Lesson1\Exercise1.cs" />
     <Compile Include="Exercises\Lesson1\Exercise2.cs" />
     <Compile Include="Exercises\Lesson1\Exercise3.cs" />
@@ -53,8 +55,12 @@
     <Compile Include="Exercises\Lesson2\Exercise2.cs" />
     <Compile Include="Exercises\Lesson2\Exercise7.cs" />
     <Compile Include="Exercises\Lesson2\Exercise4.cs" />
+    <Compile Include="Exercises\Lesson3\Exercise1.cs" />
+    <Compile Include="Exercises\Lesson3\Exercise2.cs" />
+    <Compile Include="Exercises\Lesson3\Exercise3.cs" />
     <Compile Include="Lessons\Lesson1.cs" />
     <Compile Include="Lessons\Lesson2.cs" />
+    <Compile Include="Lessons\Lesson3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

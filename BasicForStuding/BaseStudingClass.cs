@@ -42,7 +42,7 @@ namespace BasicForStuding
         protected virtual void GoToNextAction() {
             ConsoleKeyInfo key = GetChoice();
             SetNextAction(key);
-            
+
             if (NextAction.Next && Next == null) {
                 NextAction = default;
                 Clean();
@@ -50,7 +50,7 @@ namespace BasicForStuding
                 Console.ReadKey();
             }
 
-            if (NextAction.Next ) {
+            if (NextAction.Next) {
                 NextAction = Next.Execute();
                 if (NextAction.Previous && !NextAction.Close) {
                     NextAction = default;

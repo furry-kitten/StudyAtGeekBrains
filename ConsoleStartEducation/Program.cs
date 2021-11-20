@@ -12,8 +12,8 @@ namespace ConsoleStartEducation
     class Program
     {
         static void Main(string[] args) {
-            var r = Assembly.GetExecutingAssembly().Location;
-            var lesson2 = new Lesson2(null);
+            var lesson3 = new Lesson3(null);
+            var lesson2 = new Lesson2(lesson3);
             var lesson1 = new Lesson1(lesson2);
             lesson1.Execute();
         }
