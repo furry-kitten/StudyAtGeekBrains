@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FoundationsOfProgramming.Exercises.ForExercises
+﻿namespace FoundationsOfProgramming.Exercises.ForExercises
 {
     internal struct Complex
     {

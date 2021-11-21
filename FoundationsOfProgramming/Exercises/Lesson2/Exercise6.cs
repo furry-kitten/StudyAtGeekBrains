@@ -1,7 +1,4 @@
 ﻿using System;
-using System.CodeDom.Compiler;
-using System.Collections.Generic;
-using System.Timers;
 using BasicForStuding;
 
 namespace FoundationsOfProgramming.Exercises.Lesson2

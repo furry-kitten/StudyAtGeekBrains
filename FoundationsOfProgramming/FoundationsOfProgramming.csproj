@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exercises\ForExercises\Account.cs" />
     <Compile Include="Exercises\ForExercises\Complex.cs" />
     <Compile Include="Exercises\ForExercises\FractionalNumber.cs" />
     <Compile Include="Exercises\Lesson1\Exercise1.cs" />
@@ -58,15 +59,25 @@
     <Compile Include="Exercises\Lesson3\Exercise1.cs" />
     <Compile Include="Exercises\Lesson3\Exercise2.cs" />
     <Compile Include="Exercises\Lesson3\Exercise3.cs" />
+    <Compile Include="Exercises\Lesson4\Exercise1.cs" />
+    <Compile Include="Exercises\Lesson4\Exercise2.cs" />
+    <Compile Include="Exercises\Lesson4\Exercise3.cs" />
+    <Compile Include="Exercises\Lesson4\Exercise4.cs" />
+    <Compile Include="Exercises\Lesson4\Exercise5.cs" />
     <Compile Include="Lessons\Lesson1.cs" />
     <Compile Include="Lessons\Lesson2.cs" />
     <Compile Include="Lessons\Lesson3.cs" />
+    <Compile Include="Lessons\Lesson4.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BasicForStuding\BasicForStuding.csproj">
       <Project>{5baee415-6ade-4a1b-8b94-c63cfaae46e2}</Project>
       <Name>BasicForStuding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FileToArray\FileToArray.csproj">
+      <Project>{b412d8db-9824-413d-8d9c-a7c85b3344c8}</Project>
+      <Name>FileToArray</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

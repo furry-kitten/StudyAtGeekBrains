@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using BasicForStuding;
-using FoundationsOfProgramming.Exercises;
 using FoundationsOfProgramming.Exercises.Lesson1;
 
 namespace FoundationsOfProgramming.Lessons

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoundationsOfProgramming", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleStartEducation", "..\ConsoleStartEducation\ConsoleStartEducation.csproj", "{F2E9D6F3-31C3-421C-92BF-9982E2435102}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileToArray", "..\FileToArray\FileToArray.csproj", "{B412D8DB-9824-413D-8D9C-A7C85B3344C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{F2E9D6F3-31C3-421C-92BF-9982E2435102}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2E9D6F3-31C3-421C-92BF-9982E2435102}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2E9D6F3-31C3-421C-92BF-9982E2435102}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B412D8DB-9824-413D-8D9C-A7C85B3344C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B412D8DB-9824-413D-8D9C-A7C85B3344C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B412D8DB-9824-413D-8D9C-A7C85B3344C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B412D8DB-9824-413D-8D9C-A7C85B3344C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
