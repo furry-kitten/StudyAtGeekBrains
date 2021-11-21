@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using BasicForStuding;
 
 namespace FileToArray
@@ -49,7 +50,7 @@ namespace FileToArray
                     dataToReturn[i] = ConvertToIntArray(stringData[i]);
                 }
 
-                return dataToReturn;
+                return array = dataToReturn;
             } catch (FileNotFoundException) {
                 WriteExceptionMessage($"Please create file {filePath}");
                 return null;
@@ -60,6 +61,10 @@ namespace FileToArray
         }
 
         public void WriteArrayIntoFile(string filePath) {
+            if (string.IsNullOrEmpty(filePath)) {
+                filePath = Environment.CurrentDirectory + @"\";
+            }
+
             FileInfo file = filePath[filePath.Length - 1] == '\\' ? CreateFile(filePath) : new FileInfo(filePath);
             using (var writer = new StreamWriter(file.FullName)) {
                 foreach (int[] ints in array) {
@@ -67,12 +72,14 @@ namespace FileToArray
                     writer.WriteLine(str);
                 }
             }
+
+            Console.WriteLine($"File '{file.Name}' is on the path \"{file.FullName}\"");
         }
 
         private FileInfo CreateFile(string filePath) {
             var directory = new DirectoryInfo(filePath);
             FileInfo[] files = directory.GetFiles("Array*.txt", SearchOption.TopDirectoryOnly);
-            var fileName = (files.Length + 1).ToString("'Array'0#");
+            var fileName = (files.Length + 1).ToString("'Array'0#'.txt'");
             return new FileInfo($@"{filePath}\{fileName}");
         }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using BasicForStuding;
 using FA = FileToArray;
 
@@ -10,7 +11,7 @@ namespace FoundationsOfProgramming.Exercises.Lesson4
         private int above;
         public Exercise5(BaseExercise next) : base(next) { }
 
-        public override string Description { get; set; } = "а) Реализовать библиотеку с классом для работы с двумерным массивом. Реализовать конструктор, заполняющий массив случайными числами. Создать методы, которые возвращают сумму всех элементов массива, сумму всех элементов массива больше заданного, свойство, возвращающее минимальный элемент массива, свойство, возвращающее максимальный элемент массива, метод, возвращающий номер максимального элемента массива (через параметры, используя модификатор ref или out).\r\n" + 
+        public override string Description { get; set; } = "а) Реализовать библиотеку с классом для работы с двумерным массивом. Реализовать конструктор, заполняющий массив случайными числами. Создать методы, которые возвращают сумму всех элементов массива, сумму всех элементов массива больше заданного, свойство, возвращающее минимальный элемент массива, свойство, возвращающее максимальный элемент массива, метод, возвращающий номер максимального элемента массива (через параметры, используя модификатор ref или out).\r\n" +
                                                            "*б) Добавить конструктор и методы, которые загружают данные из файла и записывают данные в файл.\r\n" +
                                                            "**в) Обработать возможные исключительные ситуации при работе с файлами.";
 
@@ -21,6 +22,14 @@ namespace FoundationsOfProgramming.Exercises.Lesson4
         protected override void ExecuteExercise() {
             exercise5 = new FA.Exercise5();
             string stringAbove = GetStringFromUserDate($"Enter the threshold ");
+            string filePath = GetStringFromUserDate($"Enter the file ");
+            if (string.IsNullOrEmpty(filePath) || exercise5.ReadFile(filePath) == null) {
+                exercise5.GenerateArray();
+                filePath = Environment.CurrentDirectory + @"\";
+            }
+
+            exercise5.WriteArrayIntoFile(filePath);
+
             if (string.IsNullOrEmpty(stringAbove) || !char.IsDigit(stringAbove[0])) {
                 above = Int32.MinValue;
             } else {
