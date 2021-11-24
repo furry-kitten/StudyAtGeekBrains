@@ -1,9 +1,6 @@
-﻿using System;
-using BasicForStuding;
+﻿using BasicForStuding;
 using FA = FileToArray;
 using static FileToArray.StaticExercise1;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace FoundationsOfProgramming.Exercises.Lesson4
 {
