@@ -44,6 +44,8 @@
     <Compile Include="Exercises\ForExercises\Account.cs" />
     <Compile Include="Exercises\ForExercises\Complex.cs" />
     <Compile Include="Exercises\ForExercises\FractionalNumber.cs" />
+    <Compile Include="Exercises\ForExercises\Message.cs" />
+    <Compile Include="Exercises\ForExercises\Student.cs" />
     <Compile Include="Exercises\Lesson1\Exercise1.cs" />
     <Compile Include="Exercises\Lesson1\Exercise2.cs" />
     <Compile Include="Exercises\Lesson1\Exercise3.cs" />
@@ -64,9 +66,14 @@
     <Compile Include="Exercises\Lesson4\Exercise3.cs" />
     <Compile Include="Exercises\Lesson4\Exercise4.cs" />
     <Compile Include="Exercises\Lesson4\Exercise5.cs" />
+    <Compile Include="Exercises\Lesson5\Exercise1.cs" />
+    <Compile Include="Exercises\Lesson5\Exercise2.cs" />
+    <Compile Include="Exercises\Lesson5\Exercise3.cs" />
+    <Compile Include="Exercises\Lesson5\Exercise4.cs" />
     <Compile Include="Lessons\Lesson1.cs" />
     <Compile Include="Lessons\Lesson2.cs" />
     <Compile Include="Lessons\Lesson3.cs" />
+    <Compile Include="Lessons\Lesson5.cs" />
     <Compile Include="Lessons\Lesson4.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

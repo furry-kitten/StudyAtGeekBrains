@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 
 namespace FileToArray
 {
@@ -16,7 +17,7 @@ namespace FileToArray
 
         public static int[] ReadFile(string filePath) {
             try {
-                if (string.IsNullOrEmpty(filePath)) {
+                if (String.IsNullOrEmpty(filePath)) {
                     throw new FileNotFoundException("No name file");
                 }
 
@@ -29,7 +30,7 @@ namespace FileToArray
                     var dataArray = new List<string>();
                     while (!stream.EndOfStream) {
                         string data = stream.ReadLine();
-                        if (!string.IsNullOrEmpty(data)) {
+                        if (!String.IsNullOrEmpty(data)) {
                             dataArray.AddRange(data.Split(' ', '.', ','));
                         }
                     }
@@ -54,12 +55,22 @@ namespace FileToArray
         }
 
         public static string ConvertArrayToString(int[] ints) {
-            var str = string.Empty;
+            var str = String.Empty;
             foreach (int number in ints) {
                 str = $"{str} {number}";
             }
 
             return str;
+        }
+
+        public static string ArrayToString<T>(IEnumerable<T> array, string format) {
+            var strBuilder = new StringBuilder();
+
+            foreach (T word in array) {
+                strBuilder.AppendFormat(format, word);
+            }
+
+            return strBuilder.ToString().Trim();
         }
 
         private static void WriteExceptionMessage(string message) {

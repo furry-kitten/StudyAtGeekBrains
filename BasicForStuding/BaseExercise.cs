@@ -161,6 +161,13 @@ namespace BasicForStuding
             return Console.ReadLine();
         }
 
+        protected char GetCharFromUserData(string messageForUser) {
+            Console.Write(messageForUser);
+            ConsoleKeyInfo key = Console.ReadKey();
+
+            return key.KeyChar;
+        }
+
         protected abstract void SetResult();
 
         protected abstract void ExecuteExercise();

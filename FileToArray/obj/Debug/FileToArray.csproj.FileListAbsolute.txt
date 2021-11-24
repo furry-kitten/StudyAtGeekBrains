@@ -6,3 +6,4 @@ P:\Обучение GeekBrains\FileToArray\obj\Debug\FileToArray.pdb
 P:\Обучение GeekBrains\FileToArray\obj\Debug\FileToArray.csproj.AssemblyReference.cache
 P:\Обучение GeekBrains\FileToArray\bin\Debug\BasicForStuding.dll
 P:\Обучение GeekBrains\FileToArray\bin\Debug\BasicForStuding.pdb
+P:\Обучение GeekBrains\FileToArray\obj\Debug\FileToArray.csproj.CopyComplete
