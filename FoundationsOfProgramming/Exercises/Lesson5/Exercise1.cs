@@ -19,8 +19,8 @@ namespace FoundationsOfProgramming.Exercises.Lesson5
         public override string Name { get; set; } = "Проверка корректности ввода.";
 
         protected override void SetResult() {
-            string message = IsCorrect() ? "correct" : "not correct";
-            //string message = isLoginCorrectRegex.IsMatch(login) ? "correct" : "not correct";
+            //string message = IsCorrect() ? "correct" : "not correct";
+            string message = isLoginCorrectRegex.IsMatch(login) ? "correct" : "not correct";
             Result = $"Login '{login}' is {message}";
         }
 
