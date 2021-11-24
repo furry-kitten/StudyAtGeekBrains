@@ -23,6 +23,7 @@ namespace FoundationsOfProgramming.Exercises.Lesson5
             message = GetStringFromUserDate("Enter the string ");
             secondMessage = GetStringFromUserDate("Enter the string ");
             if (message.Length != secondMessage.Length) {
+                IsEqual = false;
                 return;
             }
 

@@ -64,11 +64,13 @@ namespace FoundationsOfProgramming.Exercises.Lesson5
                 words[0]
             };
 
-            foreach (string word in words) {
-                if (word.Length > biggestWords[0].Length) {
+            for (int i = 0; i < words.Length; i++)
+            {
+                if (words[i].Length > biggestWords[0].Length) {
                     biggestWords.Clear();
-                } else if (word.Length == biggestWords[0].Length) {
-                    biggestWords.Add(word);
+                    biggestWords.Add(words[i]);
+                } else if (words[i].Length == biggestWords[0].Length) {
+                    biggestWords.Add(words[i]);
                 }
             }
 
