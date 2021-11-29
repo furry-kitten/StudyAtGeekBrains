@@ -10,3 +10,5 @@ P:\Обучение GeekBrains\ConsoleStartEducation\obj\Debug\ConsoleStartEduca
 P:\Обучение GeekBrains\ConsoleStartEducation\obj\Debug\ConsoleStartEducation.exe
 P:\Обучение GeekBrains\ConsoleStartEducation\obj\Debug\ConsoleStartEducation.pdb
 P:\Обучение GeekBrains\ConsoleStartEducation\obj\Debug\ConsoleStartEducation.csproj.CopyComplete
+P:\Обучение GeekBrains\ConsoleStartEducation\bin\Debug\FileToArray.dll
+P:\Обучение GeekBrains\ConsoleStartEducation\bin\Debug\FileToArray.pdb

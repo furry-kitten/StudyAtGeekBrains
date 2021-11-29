@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using BasicForStuding;
 using L2 = FoundationsOfProgramming.Exercises.Lesson2;
 

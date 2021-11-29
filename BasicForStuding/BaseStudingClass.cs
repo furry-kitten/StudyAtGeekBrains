@@ -34,7 +34,7 @@ namespace BasicForStuding
             int widthOfCurrentWindow = halfWidthOfCurrentWindow - halfLengthPersonalData - 1;
             var squiggle = new string('~', widthOfCurrentWindow);
             Console.Write($"{squiggle}{Name}{squiggle}\r\n");
-            Console.WriteLine(Description);
+            Console.WriteLine($"{Description}\r\nAuthor Tokarev Vladimir");
             Console.ForegroundColor = ConsoleColor.White;
             Console.CursorTop += 2;
         }

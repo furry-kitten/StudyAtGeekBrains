@@ -1,5 +1,4 @@
-﻿using System;
-using BasicForStuding;
+﻿using BasicForStuding;
 
 namespace FoundationsOfProgramming.Exercises.Lesson2
 {
@@ -20,13 +19,13 @@ namespace FoundationsOfProgramming.Exercises.Lesson2
 
         public override string Name { get; set; } = "Аутентификация";
 
-        public bool IsAuthorized { get; private set; }
+        public virtual bool IsAuthorized { get; private set; }
 
         protected override void ExecuteExercise() {
             Authorization();
         }
 
-        private void Authorization() {
+        protected virtual void Authorization() {
             int i = 0;
             do {
                 string login = GetStringFromUserDate($"{nameof(Login)}: ");

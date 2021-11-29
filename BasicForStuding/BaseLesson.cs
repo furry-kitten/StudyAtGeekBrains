@@ -20,7 +20,6 @@ namespace BasicForStuding
         }
 
         protected override void WriteGeneralInformation() {
-            Description += "\r\nAuthor Tokarev Vladimir";
             base.WriteGeneralInformation();
             Console.ForegroundColor = ConsoleColor.Yellow;
             WriteAllExercises();
