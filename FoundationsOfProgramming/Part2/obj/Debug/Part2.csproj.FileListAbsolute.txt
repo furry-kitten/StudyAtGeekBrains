@@ -1,0 +1,11 @@
+P:\Обучение GeekBrains\FoundationsOfProgramming\Part2\bin\Debug\Part2.exe.config
+P:\Обучение GeekBrains\FoundationsOfProgramming\Part2\bin\Debug\Part2.exe
+P:\Обучение GeekBrains\FoundationsOfProgramming\Part2\bin\Debug\Part2.pdb
+P:\Обучение GeekBrains\FoundationsOfProgramming\Part2\obj\Debug\Part2.csproj.AssemblyReference.cache
+P:\Обучение GeekBrains\FoundationsOfProgramming\Part2\obj\Debug\Part2.Form1.resources
+P:\Обучение GeekBrains\FoundationsOfProgramming\Part2\obj\Debug\Part2.Form2.resources
+P:\Обучение GeekBrains\FoundationsOfProgramming\Part2\obj\Debug\Part2.Properties.Resources.resources
+P:\Обучение GeekBrains\FoundationsOfProgramming\Part2\obj\Debug\Part2.csproj.GenerateResource.cache
+P:\Обучение GeekBrains\FoundationsOfProgramming\Part2\obj\Debug\Part2.csproj.CoreCompileInputs.cache
+P:\Обучение GeekBrains\FoundationsOfProgramming\Part2\obj\Debug\Part2.exe
+P:\Обучение GeekBrains\FoundationsOfProgramming\Part2\obj\Debug\Part2.pdb
